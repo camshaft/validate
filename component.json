@@ -1,0 +1,17 @@
+{
+  "name": "validate",
+  "repo": "CamShaft/validate",
+  "description": "Value validator",
+  "version": "0.0.1",
+  "keywords": [],
+  "dependencies": {
+    "visionmedia/debug": "*",
+    "component/type": "*",
+    "CamShaft/require-component": "*"
+  },
+  "development": {},
+  "license": "MIT",
+  "scripts": [
+    "index.js"
+  ]
+}

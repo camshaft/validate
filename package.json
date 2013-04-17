@@ -1,0 +1,28 @@
+{
+  "name": "validate",
+  "version": "0.1.0",
+  "description": "Value validator",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "NODE_ENV=test ./node_modules/.bin/mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/CamShaft/validate.git"
+  },
+  "author": "Cameron Bytheway <cameron@nujii.com>",
+  "license": "MIT",
+  "readmeFilename": "README.md",
+  "dependencies": {
+    "debug": "~0.7.2",
+    "type-component": "0.0.1",
+    "require-component": "~0.1.0"
+  },
+  "devDependencies": {
+    "should": "~1.2.2",
+    "mocha": "~1.9.0"
+  }
+}
