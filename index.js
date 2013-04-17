@@ -21,17 +21,17 @@ function Validation (value) {
 Validation.prototype.between =
 Validation.prototype.within =
 Validation.prototype.range = function(min, max) {
-  return this.assert(min <= this.value <= max, "range");
+  return this.assert(above(this.value, min) && below(this.value, max), "range");
 };
 
 Validation.prototype.above =
 Validation.prototype.min = function(min) {
-  return this.assert(min <= this.value, "min");
+  return this.assert(above(this.value, min), "min");
 };
 
 Validation.prototype.below =
 Validation.prototype.max = function(max) {
-  return this.assert(this.value <= max, "max");
+  return this.assert(below(this.value, max), "max");
 };
 
 Validation.prototype.true = function() {
@@ -50,7 +50,7 @@ Validation.prototype.type = function(expected) {
 
 Validation.prototype.regex =
 Validation.prototype.match = function(match) {
-  return this.assert(!!this.value.match(match), "match");
+  return this.assert(this.value && this.value.match && !!this.value.match(match), "match");
 };
 
 Validation.prototype.eql =
@@ -75,3 +75,11 @@ Validation.prototype.assert = function(valid, type) {
   this.valid = !this.failures.length;
   return this;
 };
+
+function above(value, min) {
+  return type(value.length) === "undefined" ? min <= value : min <= value.length;
+}
+
+function below(value, max) {
+  return type(value.length) === "undefined" ? value <= max : value.length <= max;
+}
